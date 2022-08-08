@@ -15,16 +15,19 @@
 .footer {
   display: flex;
   flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
+  padding: 2rem;
   justify-content: center;
   align-items: center;
+  background-color: rgb(99 102 241);
+  width: 100%;
+  bottom: 0;
+  position: absolute
 }
 
 .footer a {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-grow: 1;
 }
 
