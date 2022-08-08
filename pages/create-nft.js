@@ -1,6 +1,5 @@
 import { ethers } from 'ethers'
 import { useState } from 'react'
-import Web3Modal from 'web3modal'
 import { useRouter } from 'next/router'
 import { create as ipfsHttpClient } from 'ipfs-http-client';
 import PropertyContractNFT from '../artifacts/contracts/PropertyContractNFT.sol/PropertyContractNFT.json'

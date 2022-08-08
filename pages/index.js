@@ -1,12 +1,8 @@
 import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import Web3Modal from 'web3modal'
-import { nftAddress, nftMarketAddress } from '../config'
 import { TbExternalLink } from 'react-icons/tb'
 
-import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
-import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 
 import PropertyContractNFT from '../artifacts/contracts/PropertyContractNFT.sol/PropertyContractNFT.json'
 import PropertyFractionToken from '../artifacts/contracts/PropertyFractionToken.sol/PropertyFractionToken.json'

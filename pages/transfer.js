@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 import PropertyContractNFT from '../artifacts/contracts/PropertyContractNFT.sol/PropertyContractNFT.json'
-import PropertyFractionToken from '../artifacts/contracts/PropertyFractionToken.sol/PropertyFractionToken.json'
 
 import { useRouter } from 'next/router'
 
