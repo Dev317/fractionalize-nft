@@ -12,7 +12,7 @@ const projectSecret = process.env.INFURA_PROJECT_SECRET;
 console.log(projectID, projectSecret);
 const auth = 'Basic ' + Buffer.from(projectID + ':' + projectSecret).toString('base64');
 const client = ipfsHttpClient({
-    host: 'ipfs.infura.io',
+    host: 'infura-ipfs.io',
     port: 5001,
     protocol: 'https',
     headers: {
@@ -44,7 +44,7 @@ export default function CreateContract({ web3Provider }) {
                 }
             );
 
-            const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+            const url = `https://infura-ipfs.io/ipfs/${added.path}`;
             console.log(url);
             setFileURL(url);
         } catch(e) {
