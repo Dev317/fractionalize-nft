@@ -50,6 +50,7 @@ export default function Home({ web3Provider }) {
 
     try {
       numberNFTs = await propertyNFTContract.getNumberOfNFTs();
+      numberNFTs = numberNFTs.toNumber();
     } catch (e) {
       console.log(e);
     }
