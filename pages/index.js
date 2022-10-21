@@ -44,7 +44,14 @@ export default function Home({ web3Provider }) {
     // setLoadingState('loaded');
 
     const propertyNFTContract = new ethers.Contract(propertyContractNFTAddress,PropertyContractNFT.abi, provider);
-    const numberNFTs = await propertyNFTContract.getNumberOfNFTs();
+
+    let numberNFTs;
+
+    try {
+      numberNFTs = await propertyNFTContract.getNumberOfNFTs();
+    } catch (e) {
+      console.log(e);
+    }
     console.log(numberNFTs);
     let items = [];
 
