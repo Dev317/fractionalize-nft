@@ -18,7 +18,7 @@ export default function Home({ web3Provider }) {
   }, [])
 
   async function loadNFTs() {
-    const provider = new ethers.providers.InfuraProvider("rinkeby");
+    const provider = new ethers.providers.InfuraProvider("goerli");
     // const tokenContract = new ethers.Contract(nftAddress, NFT.abi, provider);
     // const marketContract = new ethers.Contract(nftMarketAddress, Market.abi, provider);
 

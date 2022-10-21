@@ -13,7 +13,7 @@ const providerOptions = {
     package: CoinbaseWalletSDK,
     options: {
       appName: "Web3Modal",
-      infuraId: {4 : "https://rinkeby.infura.io/v3/147bc9ac34ea45fba4e3609a373339d2"}
+      infuraId: {5 : "https://goerli.infura.io/v3/147bc9ac34ea45fba4e3609a373339d2"}
     }
   }
 }
