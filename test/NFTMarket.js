@@ -60,6 +60,6 @@ describe("NFTMarket", function() {
         const propertyContractNFTAddress = propertyContractNFT.address;
 
         let numNFTs = await propertyContractNFT.getNumberOfNFTs();
-        console.log(numNFTs.toNumber());
+        expect(numNFTs.toNumber()).to.equal(0);
     });
 });

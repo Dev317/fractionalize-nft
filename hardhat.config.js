@@ -7,9 +7,9 @@ const privateKey = process.env.PRIVATE_KEY;
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   networks: {
-    hardhat: {
-      chainId: 1337
-    },
+    // hardhat: {
+    //   chainId: 1337
+    // },
     goerli: {
       url: `https://goerli.infura.io/v3/${projectID}`,
       accounts: [privateKey]
@@ -19,5 +19,5 @@ module.exports = {
       accounts: [privateKey]
     }
   },
-  solidity: "0.8.15",
+  solidity: "0.8.9",
 };
