@@ -8,6 +8,7 @@ import PropertyContractNFT from '../artifacts/contracts/PropertyContractNFT.sol/
 import PropertyFractionToken from '../artifacts/contracts/PropertyFractionToken.sol/PropertyFractionToken.json'
 
 const propertyContractNFTAddress = process.env.PROPERTY_NFT_ADDRESS;
+console.log(propertyContractNFTAddress);
 
 export default function Home({ web3Provider }) {
   const [nfts, setNfts] = useState([]);
@@ -43,7 +44,7 @@ export default function Home({ web3Provider }) {
     // setNfts(items);
     // setLoadingState('loaded');
 
-    const propertyNFTContract = new ethers.Contract(propertyContractNFTAddress,PropertyContractNFT.abi, provider);
+    const propertyNFTContract = new ethers.Contract(propertyContractNFTAddress, PropertyContractNFT.abi, provider);
 
     let numberNFTs;
 
