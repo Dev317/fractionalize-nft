@@ -44,7 +44,7 @@ export default function CreateContract({ web3Provider }) {
                 }
             );
 
-            const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+            const url = `infura-ipfs.io/ipfs/${added.path}`;
             console.log(url);
             setFileURL(url);
         } catch(e) {
@@ -65,7 +65,7 @@ export default function CreateContract({ web3Provider }) {
 
         try {
             const added = await client.add(data);
-            const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+            const url = `infura-ipfs.io/ipfs/${added.path}`;
             console.log(url);
             confirmContract(url, propertyOwner, numTokens);
         } catch(e) {
