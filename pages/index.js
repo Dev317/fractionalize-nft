@@ -134,7 +134,7 @@ export default function Home({ web3Provider }) {
                   <p className="text-xl font-bold text-white">Total Supply: {nft.parsedSupply} PFT</p>
                 </div>
 
-                <a href={`https://rinkeby.etherscan.io/token/${nft.tokenAddress}`} target="_blank" rel="noreferrer">
+                <a href={`https://goerli.etherscan.io/token/${nft.tokenAddress}`} target="_blank" rel="noreferrer">
                 <button className="w-full bg-violet-400 hover:bg-violet-300 flex justify-center items-center text-white font-bold py-4 px-12 rounded-br-lg rounded-bl-lg">
                   <p className="px-1">
                     View Transactions

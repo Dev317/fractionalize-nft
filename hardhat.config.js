@@ -10,8 +10,8 @@ module.exports = {
     hardhat: {
       chainId: 1337
     },
-    rinkeby: {
-      url: `https://rinkeby.infura.io/v3/${projectID}`,
+    goerli: {
+      url: `https://goerli.infura.io/v3/${projectID}`,
       accounts: [privateKey]
     },
     mainnet: {

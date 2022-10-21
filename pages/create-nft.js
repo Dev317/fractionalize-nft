@@ -44,7 +44,7 @@ export default function CreateContract({ web3Provider }) {
                 }
             );
 
-            const url = `https://infura-ipfs.io/ipfs/${added.path}`;
+            const url = `https://ipfs.infura.io/ipfs/${added.path}`;
             console.log(url);
             setFileURL(url);
         } catch(e) {
