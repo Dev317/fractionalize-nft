@@ -1,13 +1,4 @@
-# Sample Hardhat Project
+# Fractionalize Housing
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-GAS_REPORT=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+## Proposal
+[embed]https://github.com/Dev317/fractionalize-nft/blob/main/Fractionalise%20Ownership%20Project.pdf[/embed]
