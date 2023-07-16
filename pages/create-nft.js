@@ -9,7 +9,7 @@ import PropertyContractNFT from '../artifacts/contracts/PropertyContractNFT.sol/
 // const ipfsClient = require('ipfs-http-client');
 const projectID = process.env.INFURA_IPFS_PROJECT_ID;
 const projectSecret = process.env.INFURA_PROJECT_SECRET;
-console.log(projectID, projectSecret);
+
 const auth = 'Basic ' + Buffer.from(projectID + ':' + projectSecret).toString('base64');
 const client = ipfsHttpClient({
     host: 'infura-ipfs.io',
@@ -78,7 +78,6 @@ export default function CreateContract({ web3Provider }) {
         // const connection = await web3Modal.connect();
         // const provider = new ethers.providers.Web3Provider(connection);
         // const signer = provider.getSigner();
-        console.log(web3Provider.provider.selectedAddress);
         const signer = web3Provider.getSigner();
 
         // let contract = new ethers.Contract(nftAddress, NFT.abi, signer);
@@ -134,7 +133,7 @@ export default function CreateContract({ web3Provider }) {
                 />
 
                 <label className="block mt-4">
-                    <span className="sr-only">Choose File</span>
+                    <span className="sr-only">Upload title dead</span>
                     <input
                         type="file"
                         className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"

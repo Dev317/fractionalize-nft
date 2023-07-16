@@ -18,12 +18,12 @@ contract PropertyContractNFT is ERC721, ERC721URIStorage, Pausable, Ownable {
 
     constructor() ERC721("PropertyContractNFT", "PCNFT") {}
 
-    struct PCNFT {
+    struct PFT {
         uint256 tokenId;
-        address fractionalERC20TokenAddress;
+        address pftAddress;
     }
 
-    mapping(uint256=>PCNFT) public PCNFTMap;
+    mapping(uint256=>PFT) public PFTMap;
 
 
     function pause() public onlyOwner {
@@ -37,9 +37,8 @@ contract PropertyContractNFT is ERC721, ERC721URIStorage, Pausable, Ownable {
     function _beforeTokenTransfer(address from, address to, uint256 tokenId)
         internal
         whenNotPaused
-        override(ERC721)
     {
-        super._beforeTokenTransfer(from, to, tokenId);
+        super._beforeTokenTransfer(from, to, tokenId, 4);
     }
 
     function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
@@ -58,7 +57,7 @@ contract PropertyContractNFT is ERC721, ERC721URIStorage, Pausable, Ownable {
     function supportsInterface(bytes4 interfaceId)
         public
         view
-        override(ERC721)
+      override(ERC721, ERC721URIStorage)
         returns (bool)
     {
         return super.supportsInterface(interfaceId);
@@ -70,17 +69,16 @@ contract PropertyContractNFT is ERC721, ERC721URIStorage, Pausable, Ownable {
         _setTokenURI(_tokenCounter.current(), _tokenURI);
 
         // Create ERC20 contract and mint stated number of ERC20 Tokens
-        PropertyFractionToken PFT_ERC20Token = new PropertyFractionToken(_totalPropertyFractionTokens, msg.sender);
+        PropertyFractionToken PFTContract = new PropertyFractionToken(_totalPropertyFractionTokens, msg.sender);
 
-
-        PCNFT memory pcnft = PCNFT(_tokenCounter.current(), address(PFT_ERC20Token));
-        PCNFTMap[_tokenCounter.current()] = pcnft;
+        PFT memory pft = PFT(_tokenCounter.current(), address(PFTContract));
+        PFTMap[_tokenCounter.current()] = pft;
 
         _tokenCounter.increment();
     }
 
     function transferERC20(address _to, uint256 _tokenId, uint256 _amount) public {
-        address tokenAddress = PCNFTMap[_tokenId].fractionalERC20TokenAddress;
+        address tokenAddress = PFTMap[_tokenId].pftAddress;
         PropertyFractionToken token = PropertyFractionToken(tokenAddress);
         token.trackTransfer(msg.sender, _to, _amount);
     }

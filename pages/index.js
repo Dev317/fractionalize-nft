@@ -8,7 +8,7 @@ import PropertyContractNFT from '../artifacts/contracts/PropertyContractNFT.sol/
 import PropertyFractionToken from '../artifacts/contracts/PropertyFractionToken.sol/PropertyFractionToken.json'
 
 const propertyContractNFTAddress = process.env.PROPERTY_NFT_ADDRESS;
-console.log(propertyContractNFTAddress);
+console.log("Property contract:", propertyContractNFTAddress);
 
 export default function Home({ web3Provider }) {
   const [nfts, setNfts] = useState([]);
@@ -54,20 +54,21 @@ export default function Home({ web3Provider }) {
     } catch (e) {
       console.log(e);
     }
-    console.log(numberNFTs);
+    console.log("Number NFTs:", numberNFTs);
     let items = [];
 
     for (let i = 0; i < numberNFTs; i++) {
-      const pcnft = await propertyNFTContract.PCNFTMap(i);
+      const pcnft = await propertyNFTContract.PFTMap(i);
 
-      const propertyFractionTokenAddress = await pcnft.fractionalERC20TokenAddress.toString();
+      const propertyFractionTokenAddress = await pcnft.pftAddress.toString();
       const propertyFractionTokenContract = new ethers.Contract(propertyFractionTokenAddress, PropertyFractionToken.abi, provider);
       const fractionTokenSupply = await propertyFractionTokenContract.totalSupply();
       const parsedFractionTokenSupply = parseInt(ethers.utils.formatUnits(fractionTokenSupply, 18));
       const holderAddresses = await propertyFractionTokenContract.getHolderAddresses();
 
       const tokenURI = await propertyNFTContract.tokenURI(pcnft.tokenId.toString());
-      const metadata = await axios.get(tokenURI);
+      const cid = tokenURI.split("/").pop()
+      const metadata = await axios.get(`https://dweb.link/ipfs/${cid}`);
       console.log(metadata);
 
       let item = {
@@ -75,7 +76,7 @@ export default function Home({ web3Provider }) {
         tokenId: pcnft.tokenId.toString(),
         tokenAddress: propertyFractionTokenAddress,
         owner: metadata.data.propertyOwner,
-        image: metadata.data.image,
+        image: `https://dweb.link/ipfs/${metadata.data.image.split("/").pop()}`,
         name: metadata.data.name,
         description: metadata.data.description,
         holders : []

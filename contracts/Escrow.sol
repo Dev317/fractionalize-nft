@@ -14,14 +14,14 @@ contract Escrow is IERC721Receiver {
     uint256 public tokenId;
 
     enum EscrowState { newEscrow, nftDeposited, cancelledNFT, cancelledPayment, ethDeposited, delivered }
-    EscrowState public state; 
+    EscrowState public state;
 
     constructor() {
         sellerAddress = payable(msg.sender);
         state = EscrowState.newEscrow;
     }
 
-    function onERC721Received( address operator, address from, uint256 tokenId, bytes calldata data ) public pure override returns (bytes4) {
+    function onERC721Received(address operator, address from, uint256 tokenId, bytes calldata data) public pure override returns (bytes4) {
         return this.onERC721Received.selector;
     }
 
